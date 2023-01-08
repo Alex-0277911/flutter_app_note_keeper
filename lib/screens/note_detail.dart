@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
 class NoteDetail extends StatefulWidget {
-  const NoteDetail({Key? key}) : super(key: key);
+  const NoteDetail({
+    Key? key,
+    required this.appBarTitle,
+  }) : super(key: key);
+
+  final String appBarTitle;
 
   @override
   State<NoteDetail> createState() => _NoteDetailState();
 }
 
 class _NoteDetailState extends State<NoteDetail> {
-  static final _priorities = ['Hight', 'Low'];
+
+  static final _priorities = ['High', 'Low'];
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
@@ -19,7 +25,9 @@ class _NoteDetailState extends State<NoteDetail> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Note'),
+        // параметр передаем с другого виджета, в зависисмости
+        // от того какую надпись нужно отобразить
+        title: Text(widget.appBarTitle),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
