@@ -1,7 +1,6 @@
-
 class Note {
 
-  late int _id;
+  int _id = -1;
   late String _title;
   late String _description;
   late String _date;
