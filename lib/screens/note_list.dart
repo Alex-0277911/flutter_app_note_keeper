@@ -20,7 +20,7 @@ class _NoteListState extends State<NoteList> {
   DatabaseHelper databaseHelper = DatabaseHelper(); //створюємо екземпляр DatabaseHelper
 
   // список всіх вузлів для представлення в апп
-  // на початку ро боти список пустий
+  // на початку роботи список пустий
   List<Note> noteList = [];
   // допоміжна змінна
   int count = 0;
@@ -41,9 +41,8 @@ class _NoteListState extends State<NoteList> {
       body: getNoteListView(),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           debugPrint('FAB clicked');
-          // navigateToDetail(Note(1,'', '', 2, ''), 'Add Note');
           navigateToDetail(Note('', '', 2, ''), 'Add Note');
         },
 

@@ -1,14 +1,26 @@
 class Note {
 
-  int _id = -1;
+  int _id = -1; // default value (значение по умолчанию, если -1 то создаем
+  // новую запись, если что то другое, т.е. id отличное от -1 то редактируем)
   late String _title;
   late String _description;
   late String _date;
   late int _priority;
 
-  Note(this._title, this._date, this._priority, this._description);
+  Note(
+      this._title,
+      this._date,
+      this._priority,
+      this._description
+      );
 
-  Note.withId(this._id, this._title, this._date, this._priority, this._description);
+  Note.withId(
+      this._id,
+      this._title,
+      this._date,
+      this._priority,
+      this._description
+      );
 
   int get id => _id;
 
@@ -46,7 +58,10 @@ class Note {
   Map<String, dynamic> toMap() {
 
     var map = <String, dynamic>{};
-    map['id'] = _id;
+
+    if (id != -1) {
+      map['id'] = _id;
+    }
     map['title'] = _title;
     map['description'] = _description;
     map['priority'] = _priority;
